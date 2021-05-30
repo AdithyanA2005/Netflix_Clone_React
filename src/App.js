@@ -13,7 +13,7 @@ function App() {
             <div className="container">
                 <Banner />
                 <Router>
-                    <Route component={Home} path="/home"></Route>
+                    <Route component={Home} path="/"></Route>
                     <Route component={Movies} path="/movies"></Route>
                 </Router>
             </div>
