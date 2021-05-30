@@ -9,6 +9,24 @@
     background-color: #111;
 }
 
+.navitems {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 150px;
+    height: 30px;
+    width: 120px;
+    padding: 20px;
+    justify-content: space-between;
+    list-style: none;
+}
+
+.navitem {
+    cursor: pointer;
+    text-decoration: none;
+    color: white;
+}
+
 .logo {
     position: fixed;
     left: 20px;
