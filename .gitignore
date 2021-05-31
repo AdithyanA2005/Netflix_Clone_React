@@ -7,3 +7,4 @@
 /coverage
 /build
 src/constants/constants.js
+.env
