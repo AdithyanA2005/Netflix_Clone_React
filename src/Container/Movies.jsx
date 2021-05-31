@@ -1,14 +1,14 @@
 import React from 'react'
 import Rowpost from '../Components/Rowpost/Rowpost'
-import { action_movies, comedy_movies, horror_movies, romance_movies } from '../constants/urls'
+import { movies } from '../Connections/constants'
 
 function Movies() {
     return (
         <div>
-            <Rowpost url={action_movies} title="Action" />
-            <Rowpost url={comedy_movies} title="Comedy" />
-            <Rowpost url={horror_movies} title="Horror" />
-            <Rowpost url={romance_movies} title="Romance" />
+            <Rowpost url={movies.action} title="Action" />
+            <Rowpost url={movies.comedy} title="Comedy" />
+            <Rowpost url={movies.horror} title="Horror" />
+            <Rowpost url={movies.romance} title="Romance" />
         </div>
     )
 }

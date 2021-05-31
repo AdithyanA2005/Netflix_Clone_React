@@ -1,13 +1,13 @@
-import React from 'react'
-import Rowpost from '../Components/Rowpost/Rowpost'
-import { documentaries, originals, trending } from '../constants/urls'
+import React from 'react';
+import Rowpost from '../Components/Rowpost/Rowpost';
+import { videos } from '../Connections/constants';
 
 function Home() {
     return (
         <div> 
-            <Rowpost url={originals} title="Netflix Originals" isBig />
-            <Rowpost url={trending} title="Trending" />
-            <Rowpost url={documentaries} title="Documentries" />
+            <Rowpost url={videos.originals} title="Netflix Originals" isBig />
+            <Rowpost url={videos.trending} title="Trending" />
+            <Rowpost url={videos.documentaries} title="Documentries" />
         </div>
     )
 }

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { API_KEY, imageUrl } from '../../constants/constants';
+import { main } from '../../Connections/constants';
 import Youtube from 'react-youtube';
-import axios from '../../axios';
+import axios from '../../Connections/axios';
 import './Rowpost.css';
 
 function Rowpost(props) {
@@ -11,8 +11,6 @@ function Rowpost(props) {
     useEffect(() => {
         axios.get(props.url).then(response => {
             setMovies(response.data.results)
-        }).catch(err => {
-            alert(err)
         })
     })
 
@@ -26,9 +24,9 @@ function Rowpost(props) {
 
     const handle_movie = (id) => {
         console.log(id);
-        axios.get(`movie/${id}/videos?api_key=${API_KEY}&language=en-US`).then(response => {
+        axios.get(`movie/${id}/videos?api_key=${main.key}&language=en-US`).then(response => {
             // TODO: Unwanted code
-            response.data.results.length !== 0 ? setUrlId(response.data.results[0]) : console.log('bbb' + response.data)
+            response.data.results.length !== 0 ? setUrlId(response.data.results[0]) : alert("you need to have premium subscription to play this")
         })
     }
 
@@ -37,12 +35,17 @@ function Rowpost(props) {
             <h2>{props.title}</h2>
             <div className="posters">
                 {
-                    movies.map((item) => 
-                        <img key={item.id} onClick={() => handle_movie(item.id)} className={props.isBig ? 'poster' : 'small_poster'} src={`${imageUrl + item.backdrop_path}`} alt="" />
-                    )
+                    movies.map((item) => {
+                        return (
+                            <div className="movie">
+                                <img key={item.id} onClick={() => handle_movie(item.id)} className={props.isBig ? 'poster' : 'small_poster'} src={`${main.image + item.backdrop_path}`} alt="" />
+                                <div className="premium"></div>
+                            </div>
+                        )
+                    })
                 }
             </div>
-            { urlid && <Youtube opts={opts} videoId={urlid.key}/>}
+            { urlid && <Youtube opts={opts} videoId={urlid.key} />}
         </div>
     )
 }
